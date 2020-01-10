@@ -1,0 +1,547 @@
+.section .text
+
+.extern handleInterruptRequest
+.extern handleException
+
+.macro interrupt nb
+.global interrupt\num\()asm
+interrupt\num\()asm:
+	pusha
+	push $\nb
+	call handleInterruptRequest
+	popa
+.endm
+
+.macro exception nb
+.global exception\num\()asm
+exception\num\()asm:
+	pusha
+	push $\nb
+	call handleException
+	popa
+.endm
+
+exception 0
+exception 1
+exception 2
+exception 3
+exception 4
+exception 5
+exception 6
+exception 7
+exception 8
+exception 9
+exception 10
+exception 11
+exception 12
+exception 13
+exception 14
+exception 15
+exception 16
+exception 17
+exception 18
+exception 19
+exception 20
+exception 21
+exception 22
+exception 23
+exception 24
+exception 25
+exception 26
+exception 27
+exception 28
+exception 29
+exception 30
+exception 31
+
+interrupt 32
+interrupt 33
+interrupt 34
+interrupt 35
+interrupt 36
+interrupt 37
+interrupt 38
+interrupt 39
+interrupt 40
+interrupt 41
+interrupt 42
+interrupt 43
+interrupt 44
+interrupt 45
+interrupt 46
+interrupt 47
+interrupt 48
+interrupt 49
+interrupt 50
+interrupt 51
+interrupt 52
+interrupt 53
+interrupt 54
+interrupt 55
+interrupt 56
+interrupt 57
+interrupt 58
+interrupt 59
+interrupt 60
+interrupt 61
+interrupt 62
+interrupt 63
+interrupt 64
+interrupt 65
+interrupt 66
+interrupt 67
+interrupt 68
+interrupt 69
+interrupt 70
+interrupt 71
+interrupt 72
+interrupt 73
+interrupt 74
+interrupt 75
+interrupt 76
+interrupt 77
+interrupt 78
+interrupt 79
+interrupt 80
+interrupt 81
+interrupt 82
+interrupt 83
+interrupt 84
+interrupt 85
+interrupt 86
+interrupt 87
+interrupt 88
+interrupt 89
+interrupt 90
+interrupt 91
+interrupt 92
+interrupt 93
+interrupt 94
+interrupt 95
+interrupt 96
+interrupt 97
+interrupt 98
+interrupt 99
+
+interrupt 100
+interrupt 101
+interrupt 102
+interrupt 103
+interrupt 104
+interrupt 105
+interrupt 106
+interrupt 107
+interrupt 108
+interrupt 109
+interrupt 110
+interrupt 111
+interrupt 112
+interrupt 113
+interrupt 114
+interrupt 115
+interrupt 116
+interrupt 117
+interrupt 118
+interrupt 119
+interrupt 120
+interrupt 121
+interrupt 122
+interrupt 123
+interrupt 124
+interrupt 125
+interrupt 126
+interrupt 127
+interrupt 128
+interrupt 129
+interrupt 130
+interrupt 131
+interrupt 132
+interrupt 133
+interrupt 134
+interrupt 135
+interrupt 136
+interrupt 137
+interrupt 138
+interrupt 139
+interrupt 140
+interrupt 141
+interrupt 142
+interrupt 143
+interrupt 144
+interrupt 145
+interrupt 146
+interrupt 147
+interrupt 148
+interrupt 149
+interrupt 150
+interrupt 151
+interrupt 152
+interrupt 153
+interrupt 154
+interrupt 155
+interrupt 156
+interrupt 157
+interrupt 158
+interrupt 159
+interrupt 160
+interrupt 161
+interrupt 162
+interrupt 163
+interrupt 164
+interrupt 165
+interrupt 166
+interrupt 167
+interrupt 168
+interrupt 169
+interrupt 170
+interrupt 171
+interrupt 172
+interrupt 173
+interrupt 174
+interrupt 175
+interrupt 176
+interrupt 177
+interrupt 178
+interrupt 179
+interrupt 180
+interrupt 181
+interrupt 182
+interrupt 183
+interrupt 184
+interrupt 185
+interrupt 186
+interrupt 187
+interrupt 188
+interrupt 189
+interrupt 190
+interrupt 191
+interrupt 192
+interrupt 193
+interrupt 194
+interrupt 195
+interrupt 196
+interrupt 197
+interrupt 198
+interrupt 199
+
+interrupt 200
+interrupt 201
+interrupt 202
+interrupt 203
+interrupt 204
+interrupt 205
+interrupt 206
+interrupt 207
+interrupt 208
+interrupt 209
+interrupt 210
+interrupt 211
+interrupt 212
+interrupt 213
+interrupt 214
+interrupt 215
+interrupt 216
+interrupt 217
+interrupt 218
+interrupt 219
+interrupt 220
+interrupt 221
+interrupt 222
+interrupt 223
+interrupt 224
+interrupt 225
+interrupt 226
+interrupt 227
+interrupt 228
+interrupt 229
+interrupt 230
+interrupt 231
+interrupt 232
+interrupt 233
+interrupt 234
+interrupt 235
+interrupt 236
+interrupt 237
+interrupt 238
+interrupt 239
+interrupt 240
+interrupt 241
+interrupt 242
+interrupt 243
+interrupt 244
+interrupt 245
+interrupt 246
+interrupt 247
+interrupt 248
+interrupt 249
+interrupt 250
+interrupt 251
+interrupt 252
+interrupt 253
+interrupt 254
+interrupt 255
+
+
+
+
+
+
+(*m_IDT)[0] = IDT::InterruptDescriptor(&exception0asm, selector, exceptionTypeAttr);
+	(*m_IDT)[1] = IDT::InterruptDescriptor(&exception1asm, selector, exceptionTypeAttr);
+	(*m_IDT)[2] = IDT::InterruptDescriptor(&exception2asm, selector, exceptionTypeAttr);
+	(*m_IDT)[3] = IDT::InterruptDescriptor(&exception3asm, selector, exceptionTypeAttr);
+	(*m_IDT)[4] = IDT::InterruptDescriptor(&exception4asm, selector, exceptionTypeAttr);
+	(*m_IDT)[5] = IDT::InterruptDescriptor(&exception5asm, selector, exceptionTypeAttr);
+	(*m_IDT)[6] = IDT::InterruptDescriptor(&exception6asm, selector, exceptionTypeAttr);
+	(*m_IDT)[7] = IDT::InterruptDescriptor(&exception7asm, selector, exceptionTypeAttr);
+	(*m_IDT)[8] = IDT::InterruptDescriptor(&exception8asm, selector, exceptionTypeAttr);
+	(*m_IDT)[9] = IDT::InterruptDescriptor(&exception9asm, selector, exceptionTypeAttr);
+	(*m_IDT)[10] = IDT::InterruptDescriptor(&exception10asm, selector, exceptionTypeAttr);
+	(*m_IDT)[11] = IDT::InterruptDescriptor(&exception11asm, selector, exceptionTypeAttr);
+	(*m_IDT)[12] = IDT::InterruptDescriptor(&exception12asm, selector, exceptionTypeAttr);
+	(*m_IDT)[13] = IDT::InterruptDescriptor(&exception13asm, selector, exceptionTypeAttr);
+	(*m_IDT)[14] = IDT::InterruptDescriptor(&exception14asm, selector, exceptionTypeAttr);
+	(*m_IDT)[15] = IDT::InterruptDescriptor(&exception15asm, selector, exceptionTypeAttr);
+	(*m_IDT)[16] = IDT::InterruptDescriptor(&exception16asm, selector, exceptionTypeAttr);
+	(*m_IDT)[17] = IDT::InterruptDescriptor(&exception17asm, selector, exceptionTypeAttr);
+	(*m_IDT)[18] = IDT::InterruptDescriptor(&exception18asm, selector, exceptionTypeAttr);
+	(*m_IDT)[19] = IDT::InterruptDescriptor(&exception19asm, selector, exceptionTypeAttr);
+	(*m_IDT)[20] = IDT::InterruptDescriptor(&exception20asm, selector, exceptionTypeAttr);
+	(*m_IDT)[21] = IDT::InterruptDescriptor(&exception21asm, selector, exceptionTypeAttr);
+	(*m_IDT)[22] = IDT::InterruptDescriptor(&exception22asm, selector, exceptionTypeAttr);
+	(*m_IDT)[23] = IDT::InterruptDescriptor(&exception23asm, selector, exceptionTypeAttr);
+	(*m_IDT)[24] = IDT::InterruptDescriptor(&exception24asm, selector, exceptionTypeAttr);
+	(*m_IDT)[25] = IDT::InterruptDescriptor(&exception25asm, selector, exceptionTypeAttr);
+	(*m_IDT)[26] = IDT::InterruptDescriptor(&exception26asm, selector, exceptionTypeAttr);
+	(*m_IDT)[27] = IDT::InterruptDescriptor(&exception27asm, selector, exceptionTypeAttr);
+	(*m_IDT)[28] = IDT::InterruptDescriptor(&exception28asm, selector, exceptionTypeAttr);
+	(*m_IDT)[29] = IDT::InterruptDescriptor(&exception29asm, selector, exceptionTypeAttr);
+	(*m_IDT)[30] = IDT::InterruptDescriptor(&exception30asm, selector, exceptionTypeAttr);
+	(*m_IDT)[31] = IDT::InterruptDescriptor(&exception31asm, selector, exceptionTypeAttr);
+	
+	(*m_IDT)[32] = IDT::InterruptDescriptor(&interrupt32asm, selector, IRQTypeAttr);
+	(*m_IDT)[33] = IDT::InterruptDescriptor(&interrupt33asm, selector, IRQTypeAttr);
+	(*m_IDT)[34] = IDT::InterruptDescriptor(&interrupt34asm, selector, IRQTypeAttr);
+	(*m_IDT)[35] = IDT::InterruptDescriptor(&interrupt35asm, selector, IRQTypeAttr);
+	(*m_IDT)[36] = IDT::InterruptDescriptor(&interrupt36asm, selector, IRQTypeAttr);
+	(*m_IDT)[37] = IDT::InterruptDescriptor(&interrupt37asm, selector, IRQTypeAttr);
+	(*m_IDT)[38] = IDT::InterruptDescriptor(&interrupt38asm, selector, IRQTypeAttr);
+	(*m_IDT)[39] = IDT::InterruptDescriptor(&interrupt39asm, selector, IRQTypeAttr);
+	(*m_IDT)[40] = IDT::InterruptDescriptor(&interrupt40asm, selector, IRQTypeAttr);
+	(*m_IDT)[41] = IDT::InterruptDescriptor(&interrupt41asm, selector, IRQTypeAttr);
+	(*m_IDT)[42] = IDT::InterruptDescriptor(&interrupt42asm, selector, IRQTypeAttr);
+	(*m_IDT)[43] = IDT::InterruptDescriptor(&interrupt43asm, selector, IRQTypeAttr);
+	(*m_IDT)[44] = IDT::InterruptDescriptor(&interrupt44asm, selector, IRQTypeAttr);
+	(*m_IDT)[45] = IDT::InterruptDescriptor(&interrupt45asm, selector, IRQTypeAttr);
+	(*m_IDT)[46] = IDT::InterruptDescriptor(&interrupt46asm, selector, IRQTypeAttr);
+	(*m_IDT)[47] = IDT::InterruptDescriptor(&interrupt47asm, selector, IRQTypeAttr);
+	(*m_IDT)[48] = IDT::InterruptDescriptor(&interrupt48asm, selector, IRQTypeAttr);
+	(*m_IDT)[49] = IDT::InterruptDescriptor(&interrupt49asm, selector, IRQTypeAttr);
+	(*m_IDT)[50] = IDT::InterruptDescriptor(&interrupt50asm, selector, IRQTypeAttr);
+	(*m_IDT)[51] = IDT::InterruptDescriptor(&interrupt51asm, selector, IRQTypeAttr);
+	(*m_IDT)[52] = IDT::InterruptDescriptor(&interrupt52asm, selector, IRQTypeAttr);
+	(*m_IDT)[53] = IDT::InterruptDescriptor(&interrupt53asm, selector, IRQTypeAttr);
+	(*m_IDT)[54] = IDT::InterruptDescriptor(&interrupt54asm, selector, IRQTypeAttr);
+	(*m_IDT)[55] = IDT::InterruptDescriptor(&interrupt55asm, selector, IRQTypeAttr);
+	(*m_IDT)[56] = IDT::InterruptDescriptor(&interrupt56asm, selector, IRQTypeAttr);
+	(*m_IDT)[57] = IDT::InterruptDescriptor(&interrupt57asm, selector, IRQTypeAttr);
+	(*m_IDT)[58] = IDT::InterruptDescriptor(&interrupt58asm, selector, IRQTypeAttr);
+	(*m_IDT)[59] = IDT::InterruptDescriptor(&interrupt59asm, selector, IRQTypeAttr);
+	(*m_IDT)[60] = IDT::InterruptDescriptor(&interrupt60asm, selector, IRQTypeAttr);
+	(*m_IDT)[61] = IDT::InterruptDescriptor(&interrupt61asm, selector, IRQTypeAttr);
+	(*m_IDT)[62] = IDT::InterruptDescriptor(&interrupt62asm, selector, IRQTypeAttr);
+	(*m_IDT)[63] = IDT::InterruptDescriptor(&interrupt63asm, selector, IRQTypeAttr);
+	(*m_IDT)[64] = IDT::InterruptDescriptor(&interrupt64asm, selector, IRQTypeAttr);
+	(*m_IDT)[65] = IDT::InterruptDescriptor(&interrupt65asm, selector, IRQTypeAttr);
+	(*m_IDT)[66] = IDT::InterruptDescriptor(&interrupt66asm, selector, IRQTypeAttr);
+	(*m_IDT)[67] = IDT::InterruptDescriptor(&interrupt67asm, selector, IRQTypeAttr);
+	(*m_IDT)[68] = IDT::InterruptDescriptor(&interrupt68asm, selector, IRQTypeAttr);
+	(*m_IDT)[69] = IDT::InterruptDescriptor(&interrupt69asm, selector, IRQTypeAttr);
+	(*m_IDT)[70] = IDT::InterruptDescriptor(&interrupt70asm, selector, IRQTypeAttr);
+	(*m_IDT)[71] = IDT::InterruptDescriptor(&interrupt71asm, selector, IRQTypeAttr);
+	(*m_IDT)[72] = IDT::InterruptDescriptor(&interrupt72asm, selector, IRQTypeAttr);
+	(*m_IDT)[73] = IDT::InterruptDescriptor(&interrupt73asm, selector, IRQTypeAttr);
+	(*m_IDT)[74] = IDT::InterruptDescriptor(&interrupt74asm, selector, IRQTypeAttr);
+	(*m_IDT)[75] = IDT::InterruptDescriptor(&interrupt75asm, selector, IRQTypeAttr);
+	(*m_IDT)[76] = IDT::InterruptDescriptor(&interrupt76asm, selector, IRQTypeAttr);
+	(*m_IDT)[77] = IDT::InterruptDescriptor(&interrupt77asm, selector, IRQTypeAttr);
+	(*m_IDT)[78] = IDT::InterruptDescriptor(&interrupt78asm, selector, IRQTypeAttr);
+	(*m_IDT)[79] = IDT::InterruptDescriptor(&interrupt79asm, selector, IRQTypeAttr);
+	(*m_IDT)[80] = IDT::InterruptDescriptor(&interrupt80asm, selector, IRQTypeAttr);
+	(*m_IDT)[81] = IDT::InterruptDescriptor(&interrupt81asm, selector, IRQTypeAttr);
+	(*m_IDT)[82] = IDT::InterruptDescriptor(&interrupt82asm, selector, IRQTypeAttr);
+	(*m_IDT)[83] = IDT::InterruptDescriptor(&interrupt83asm, selector, IRQTypeAttr);
+	(*m_IDT)[84] = IDT::InterruptDescriptor(&interrupt84asm, selector, IRQTypeAttr);
+	(*m_IDT)[85] = IDT::InterruptDescriptor(&interrupt85asm, selector, IRQTypeAttr);
+	(*m_IDT)[86] = IDT::InterruptDescriptor(&interrupt86asm, selector, IRQTypeAttr);
+	(*m_IDT)[87] = IDT::InterruptDescriptor(&interrupt87asm, selector, IRQTypeAttr);
+	(*m_IDT)[88] = IDT::InterruptDescriptor(&interrupt88asm, selector, IRQTypeAttr);
+	(*m_IDT)[89] = IDT::InterruptDescriptor(&interrupt89asm, selector, IRQTypeAttr);
+	(*m_IDT)[90] = IDT::InterruptDescriptor(&interrupt90asm, selector, IRQTypeAttr);
+	(*m_IDT)[91] = IDT::InterruptDescriptor(&interrupt91asm, selector, IRQTypeAttr);
+	(*m_IDT)[92] = IDT::InterruptDescriptor(&interrupt92asm, selector, IRQTypeAttr);
+	(*m_IDT)[93] = IDT::InterruptDescriptor(&interrupt93asm, selector, IRQTypeAttr);
+	(*m_IDT)[94] = IDT::InterruptDescriptor(&interrupt94asm, selector, IRQTypeAttr);
+	(*m_IDT)[95] = IDT::InterruptDescriptor(&interrupt95asm, selector, IRQTypeAttr);
+	(*m_IDT)[96] = IDT::InterruptDescriptor(&interrupt96asm, selector, IRQTypeAttr);
+	(*m_IDT)[97] = IDT::InterruptDescriptor(&interrupt97asm, selector, IRQTypeAttr);
+	(*m_IDT)[98] = IDT::InterruptDescriptor(&interrupt98asm, selector, IRQTypeAttr);
+	(*m_IDT)[99] = IDT::InterruptDescriptor(&interrupt99asm, selector, IRQTypeAttr);
+
+	(*m_IDT)[100] = IDT::InterruptDescriptor(&interrupt100asm, selector, IRQTypeAttr);
+	(*m_IDT)[101] = IDT::InterruptDescriptor(&interrupt101asm, selector, IRQTypeAttr);
+	(*m_IDT)[102] = IDT::InterruptDescriptor(&interrupt102asm, selector, IRQTypeAttr);
+	(*m_IDT)[103] = IDT::InterruptDescriptor(&interrupt103asm, selector, IRQTypeAttr);
+	(*m_IDT)[104] = IDT::InterruptDescriptor(&interrupt104asm, selector, IRQTypeAttr);
+	(*m_IDT)[105] = IDT::InterruptDescriptor(&interrupt105asm, selector, IRQTypeAttr);
+	(*m_IDT)[106] = IDT::InterruptDescriptor(&interrupt106asm, selector, IRQTypeAttr);
+	(*m_IDT)[107] = IDT::InterruptDescriptor(&interrupt107asm, selector, IRQTypeAttr);
+	(*m_IDT)[108] = IDT::InterruptDescriptor(&interrupt108asm, selector, IRQTypeAttr);
+	(*m_IDT)[109] = IDT::InterruptDescriptor(&interrupt109asm, selector, IRQTypeAttr);
+	(*m_IDT)[110] = IDT::InterruptDescriptor(&interrupt110asm, selector, IRQTypeAttr);
+	(*m_IDT)[111] = IDT::InterruptDescriptor(&interrupt111asm, selector, IRQTypeAttr);
+	(*m_IDT)[112] = IDT::InterruptDescriptor(&interrupt112asm, selector, IRQTypeAttr);
+	(*m_IDT)[113] = IDT::InterruptDescriptor(&interrupt113asm, selector, IRQTypeAttr);
+	(*m_IDT)[114] = IDT::InterruptDescriptor(&interrupt114asm, selector, IRQTypeAttr);
+	(*m_IDT)[115] = IDT::InterruptDescriptor(&interrupt115asm, selector, IRQTypeAttr);
+	(*m_IDT)[116] = IDT::InterruptDescriptor(&interrupt116asm, selector, IRQTypeAttr);
+	(*m_IDT)[117] = IDT::InterruptDescriptor(&interrupt117asm, selector, IRQTypeAttr);
+	(*m_IDT)[118] = IDT::InterruptDescriptor(&interrupt118asm, selector, IRQTypeAttr);
+	(*m_IDT)[119] = IDT::InterruptDescriptor(&interrupt119asm, selector, IRQTypeAttr);
+	(*m_IDT)[120] = IDT::InterruptDescriptor(&interrupt120asm, selector, IRQTypeAttr);
+	(*m_IDT)[121] = IDT::InterruptDescriptor(&interrupt121asm, selector, IRQTypeAttr);
+	(*m_IDT)[122] = IDT::InterruptDescriptor(&interrupt122asm, selector, IRQTypeAttr);
+	(*m_IDT)[123] = IDT::InterruptDescriptor(&interrupt123asm, selector, IRQTypeAttr);
+	(*m_IDT)[124] = IDT::InterruptDescriptor(&interrupt124asm, selector, IRQTypeAttr);
+	(*m_IDT)[125] = IDT::InterruptDescriptor(&interrupt125asm, selector, IRQTypeAttr);
+	(*m_IDT)[126] = IDT::InterruptDescriptor(&interrupt126asm, selector, IRQTypeAttr);
+	(*m_IDT)[127] = IDT::InterruptDescriptor(&interrupt127asm, selector, IRQTypeAttr);
+	(*m_IDT)[128] = IDT::InterruptDescriptor(&interrupt128asm, selector, IRQTypeAttr);
+	(*m_IDT)[129] = IDT::InterruptDescriptor(&interrupt129asm, selector, IRQTypeAttr);
+	(*m_IDT)[130] = IDT::InterruptDescriptor(&interrupt130asm, selector, IRQTypeAttr);
+	(*m_IDT)[131] = IDT::InterruptDescriptor(&interrupt131asm, selector, IRQTypeAttr);
+	(*m_IDT)[132] = IDT::InterruptDescriptor(&interrupt132asm, selector, IRQTypeAttr);
+	(*m_IDT)[133] = IDT::InterruptDescriptor(&interrupt133asm, selector, IRQTypeAttr);
+	(*m_IDT)[134] = IDT::InterruptDescriptor(&interrupt134asm, selector, IRQTypeAttr);
+	(*m_IDT)[135] = IDT::InterruptDescriptor(&interrupt135asm, selector, IRQTypeAttr);
+	(*m_IDT)[136] = IDT::InterruptDescriptor(&interrupt136asm, selector, IRQTypeAttr);
+	(*m_IDT)[137] = IDT::InterruptDescriptor(&interrupt137asm, selector, IRQTypeAttr);
+	(*m_IDT)[138] = IDT::InterruptDescriptor(&interrupt138asm, selector, IRQTypeAttr);
+	(*m_IDT)[139] = IDT::InterruptDescriptor(&interrupt139asm, selector, IRQTypeAttr);
+	(*m_IDT)[140] = IDT::InterruptDescriptor(&interrupt140asm, selector, IRQTypeAttr);
+	(*m_IDT)[141] = IDT::InterruptDescriptor(&interrupt141asm, selector, IRQTypeAttr);
+	(*m_IDT)[142] = IDT::InterruptDescriptor(&interrupt142asm, selector, IRQTypeAttr);
+	(*m_IDT)[143] = IDT::InterruptDescriptor(&interrupt143asm, selector, IRQTypeAttr);
+	(*m_IDT)[144] = IDT::InterruptDescriptor(&interrupt144asm, selector, IRQTypeAttr);
+	(*m_IDT)[145] = IDT::InterruptDescriptor(&interrupt145asm, selector, IRQTypeAttr);
+	(*m_IDT)[146] = IDT::InterruptDescriptor(&interrupt146asm, selector, IRQTypeAttr);
+	(*m_IDT)[147] = IDT::InterruptDescriptor(&interrupt147asm, selector, IRQTypeAttr);
+	(*m_IDT)[148] = IDT::InterruptDescriptor(&interrupt148asm, selector, IRQTypeAttr);
+	(*m_IDT)[149] = IDT::InterruptDescriptor(&interrupt149asm, selector, IRQTypeAttr);
+	(*m_IDT)[150] = IDT::InterruptDescriptor(&interrupt150asm, selector, IRQTypeAttr);
+	(*m_IDT)[151] = IDT::InterruptDescriptor(&interrupt151asm, selector, IRQTypeAttr);
+	(*m_IDT)[152] = IDT::InterruptDescriptor(&interrupt152asm, selector, IRQTypeAttr);
+	(*m_IDT)[153] = IDT::InterruptDescriptor(&interrupt153asm, selector, IRQTypeAttr);
+	(*m_IDT)[154] = IDT::InterruptDescriptor(&interrupt154asm, selector, IRQTypeAttr);
+	(*m_IDT)[155] = IDT::InterruptDescriptor(&interrupt155asm, selector, IRQTypeAttr);
+	(*m_IDT)[156] = IDT::InterruptDescriptor(&interrupt156asm, selector, IRQTypeAttr);
+	(*m_IDT)[157] = IDT::InterruptDescriptor(&interrupt157asm, selector, IRQTypeAttr);
+	(*m_IDT)[158] = IDT::InterruptDescriptor(&interrupt158asm, selector, IRQTypeAttr);
+	(*m_IDT)[159] = IDT::InterruptDescriptor(&interrupt159asm, selector, IRQTypeAttr);
+	(*m_IDT)[160] = IDT::InterruptDescriptor(&interrupt160asm, selector, IRQTypeAttr);
+	(*m_IDT)[161] = IDT::InterruptDescriptor(&interrupt161asm, selector, IRQTypeAttr);
+	(*m_IDT)[162] = IDT::InterruptDescriptor(&interrupt162asm, selector, IRQTypeAttr);
+	(*m_IDT)[163] = IDT::InterruptDescriptor(&interrupt163asm, selector, IRQTypeAttr);
+	(*m_IDT)[164] = IDT::InterruptDescriptor(&interrupt164asm, selector, IRQTypeAttr);
+	(*m_IDT)[165] = IDT::InterruptDescriptor(&interrupt165asm, selector, IRQTypeAttr);
+	(*m_IDT)[166] = IDT::InterruptDescriptor(&interrupt166asm, selector, IRQTypeAttr);
+	(*m_IDT)[167] = IDT::InterruptDescriptor(&interrupt167asm, selector, IRQTypeAttr);
+	(*m_IDT)[168] = IDT::InterruptDescriptor(&interrupt168asm, selector, IRQTypeAttr);
+	(*m_IDT)[169] = IDT::InterruptDescriptor(&interrupt169asm, selector, IRQTypeAttr);
+	(*m_IDT)[170] = IDT::InterruptDescriptor(&interrupt170asm, selector, IRQTypeAttr);
+	(*m_IDT)[171] = IDT::InterruptDescriptor(&interrupt171asm, selector, IRQTypeAttr);
+	(*m_IDT)[172] = IDT::InterruptDescriptor(&interrupt172asm, selector, IRQTypeAttr);
+	(*m_IDT)[173] = IDT::InterruptDescriptor(&interrupt173asm, selector, IRQTypeAttr);
+	(*m_IDT)[174] = IDT::InterruptDescriptor(&interrupt174asm, selector, IRQTypeAttr);
+	(*m_IDT)[175] = IDT::InterruptDescriptor(&interrupt175asm, selector, IRQTypeAttr);
+	(*m_IDT)[176] = IDT::InterruptDescriptor(&interrupt176asm, selector, IRQTypeAttr);
+	(*m_IDT)[177] = IDT::InterruptDescriptor(&interrupt177asm, selector, IRQTypeAttr);
+	(*m_IDT)[178] = IDT::InterruptDescriptor(&interrupt178asm, selector, IRQTypeAttr);
+	(*m_IDT)[179] = IDT::InterruptDescriptor(&interrupt179asm, selector, IRQTypeAttr);
+	(*m_IDT)[180] = IDT::InterruptDescriptor(&interrupt180asm, selector, IRQTypeAttr);
+	(*m_IDT)[181] = IDT::InterruptDescriptor(&interrupt181asm, selector, IRQTypeAttr);
+	(*m_IDT)[182] = IDT::InterruptDescriptor(&interrupt182asm, selector, IRQTypeAttr);
+	(*m_IDT)[183] = IDT::InterruptDescriptor(&interrupt183asm, selector, IRQTypeAttr);
+	(*m_IDT)[184] = IDT::InterruptDescriptor(&interrupt184asm, selector, IRQTypeAttr);
+	(*m_IDT)[185] = IDT::InterruptDescriptor(&interrupt185asm, selector, IRQTypeAttr);
+	(*m_IDT)[186] = IDT::InterruptDescriptor(&interrupt186asm, selector, IRQTypeAttr);
+	(*m_IDT)[187] = IDT::InterruptDescriptor(&interrupt187asm, selector, IRQTypeAttr);
+	(*m_IDT)[188] = IDT::InterruptDescriptor(&interrupt188asm, selector, IRQTypeAttr);
+	(*m_IDT)[189] = IDT::InterruptDescriptor(&interrupt189asm, selector, IRQTypeAttr);
+	(*m_IDT)[190] = IDT::InterruptDescriptor(&interrupt190asm, selector, IRQTypeAttr);
+	(*m_IDT)[191] = IDT::InterruptDescriptor(&interrupt191asm, selector, IRQTypeAttr);
+	(*m_IDT)[192] = IDT::InterruptDescriptor(&interrupt192asm, selector, IRQTypeAttr);
+	(*m_IDT)[193] = IDT::InterruptDescriptor(&interrupt193asm, selector, IRQTypeAttr);
+	(*m_IDT)[194] = IDT::InterruptDescriptor(&interrupt194asm, selector, IRQTypeAttr);
+	(*m_IDT)[195] = IDT::InterruptDescriptor(&interrupt195asm, selector, IRQTypeAttr);
+	(*m_IDT)[196] = IDT::InterruptDescriptor(&interrupt196asm, selector, IRQTypeAttr);
+	(*m_IDT)[197] = IDT::InterruptDescriptor(&interrupt197asm, selector, IRQTypeAttr);
+	(*m_IDT)[198] = IDT::InterruptDescriptor(&interrupt198asm, selector, IRQTypeAttr);
+	(*m_IDT)[199] = IDT::InterruptDescriptor(&interrupt199asm, selector, IRQTypeAttr);
+
+	(*m_IDT)[200] = IDT::InterruptDescriptor(&interrupt200asm, selector, IRQTypeAttr);
+	(*m_IDT)[201] = IDT::InterruptDescriptor(&interrupt201asm, selector, IRQTypeAttr);
+	(*m_IDT)[202] = IDT::InterruptDescriptor(&interrupt202asm, selector, IRQTypeAttr);
+	(*m_IDT)[203] = IDT::InterruptDescriptor(&interrupt203asm, selector, IRQTypeAttr);
+	(*m_IDT)[204] = IDT::InterruptDescriptor(&interrupt204asm, selector, IRQTypeAttr);
+	(*m_IDT)[205] = IDT::InterruptDescriptor(&interrupt205asm, selector, IRQTypeAttr);
+	(*m_IDT)[206] = IDT::InterruptDescriptor(&interrupt206asm, selector, IRQTypeAttr);
+	(*m_IDT)[207] = IDT::InterruptDescriptor(&interrupt207asm, selector, IRQTypeAttr);
+	(*m_IDT)[208] = IDT::InterruptDescriptor(&interrupt208asm, selector, IRQTypeAttr);
+	(*m_IDT)[209] = IDT::InterruptDescriptor(&interrupt209asm, selector, IRQTypeAttr);
+	(*m_IDT)[210] = IDT::InterruptDescriptor(&interrupt210asm, selector, IRQTypeAttr);
+	(*m_IDT)[211] = IDT::InterruptDescriptor(&interrupt211asm, selector, IRQTypeAttr);
+	(*m_IDT)[212] = IDT::InterruptDescriptor(&interrupt212asm, selector, IRQTypeAttr);
+	(*m_IDT)[213] = IDT::InterruptDescriptor(&interrupt213asm, selector, IRQTypeAttr);
+	(*m_IDT)[214] = IDT::InterruptDescriptor(&interrupt214asm, selector, IRQTypeAttr);
+	(*m_IDT)[215] = IDT::InterruptDescriptor(&interrupt215asm, selector, IRQTypeAttr);
+	(*m_IDT)[216] = IDT::InterruptDescriptor(&interrupt216asm, selector, IRQTypeAttr);
+	(*m_IDT)[217] = IDT::InterruptDescriptor(&interrupt217asm, selector, IRQTypeAttr);
+	(*m_IDT)[218] = IDT::InterruptDescriptor(&interrupt218asm, selector, IRQTypeAttr);
+	(*m_IDT)[219] = IDT::InterruptDescriptor(&interrupt219asm, selector, IRQTypeAttr);
+	(*m_IDT)[220] = IDT::InterruptDescriptor(&interrupt220asm, selector, IRQTypeAttr);
+	(*m_IDT)[221] = IDT::InterruptDescriptor(&interrupt221asm, selector, IRQTypeAttr);
+	(*m_IDT)[222] = IDT::InterruptDescriptor(&interrupt222asm, selector, IRQTypeAttr);
+	(*m_IDT)[223] = IDT::InterruptDescriptor(&interrupt223asm, selector, IRQTypeAttr);
+	(*m_IDT)[224] = IDT::InterruptDescriptor(&interrupt224asm, selector, IRQTypeAttr);
+	(*m_IDT)[225] = IDT::InterruptDescriptor(&interrupt225asm, selector, IRQTypeAttr);
+	(*m_IDT)[226] = IDT::InterruptDescriptor(&interrupt226asm, selector, IRQTypeAttr);
+	(*m_IDT)[227] = IDT::InterruptDescriptor(&interrupt227asm, selector, IRQTypeAttr);
+	(*m_IDT)[228] = IDT::InterruptDescriptor(&interrupt228asm, selector, IRQTypeAttr);
+	(*m_IDT)[229] = IDT::InterruptDescriptor(&interrupt229asm, selector, IRQTypeAttr);
+	(*m_IDT)[230] = IDT::InterruptDescriptor(&interrupt230asm, selector, IRQTypeAttr);
+	(*m_IDT)[231] = IDT::InterruptDescriptor(&interrupt231asm, selector, IRQTypeAttr);
+	(*m_IDT)[232] = IDT::InterruptDescriptor(&interrupt232asm, selector, IRQTypeAttr);
+	(*m_IDT)[233] = IDT::InterruptDescriptor(&interrupt233asm, selector, IRQTypeAttr);
+	(*m_IDT)[234] = IDT::InterruptDescriptor(&interrupt234asm, selector, IRQTypeAttr);
+	(*m_IDT)[235] = IDT::InterruptDescriptor(&interrupt235asm, selector, IRQTypeAttr);
+	(*m_IDT)[236] = IDT::InterruptDescriptor(&interrupt236asm, selector, IRQTypeAttr);
+	(*m_IDT)[237] = IDT::InterruptDescriptor(&interrupt237asm, selector, IRQTypeAttr);
+	(*m_IDT)[238] = IDT::InterruptDescriptor(&interrupt238asm, selector, IRQTypeAttr);
+	(*m_IDT)[239] = IDT::InterruptDescriptor(&interrupt239asm, selector, IRQTypeAttr);
+	(*m_IDT)[240] = IDT::InterruptDescriptor(&interrupt240asm, selector, IRQTypeAttr);
+	(*m_IDT)[241] = IDT::InterruptDescriptor(&interrupt241asm, selector, IRQTypeAttr);
+	(*m_IDT)[242] = IDT::InterruptDescriptor(&interrupt242asm, selector, IRQTypeAttr);
+	(*m_IDT)[243] = IDT::InterruptDescriptor(&interrupt243asm, selector, IRQTypeAttr);
+	(*m_IDT)[244] = IDT::InterruptDescriptor(&interrupt244asm, selector, IRQTypeAttr);
+	(*m_IDT)[245] = IDT::InterruptDescriptor(&interrupt245asm, selector, IRQTypeAttr);
+	(*m_IDT)[246] = IDT::InterruptDescriptor(&interrupt246asm, selector, IRQTypeAttr);
+	(*m_IDT)[247] = IDT::InterruptDescriptor(&interrupt247asm, selector, IRQTypeAttr);
+	(*m_IDT)[248] = IDT::InterruptDescriptor(&interrupt248asm, selector, IRQTypeAttr);
+	(*m_IDT)[249] = IDT::InterruptDescriptor(&interrupt249asm, selector, IRQTypeAttr);
+	(*m_IDT)[250] = IDT::InterruptDescriptor(&interrupt250asm, selector, IRQTypeAttr);
+	(*m_IDT)[251] = IDT::InterruptDescriptor(&interrupt251asm, selector, IRQTypeAttr);
+	(*m_IDT)[252] = IDT::InterruptDescriptor(&interrupt252asm, selector, IRQTypeAttr);
+	(*m_IDT)[253] = IDT::InterruptDescriptor(&interrupt253asm, selector, IRQTypeAttr);
+	(*m_IDT)[254] = IDT::InterruptDescriptor(&interrupt254asm, selector, IRQTypeAttr);
+	(*m_IDT)[255] = IDT::InterruptDescriptor(&interrupt255asm, selector, IRQTypeAttr);
