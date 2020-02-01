@@ -2,9 +2,11 @@
 #include "Headers/debug.h"
 #include "Headers/CPU.h"
 #include "Headers/GDT.h"
-#include "Headers/IDT.h"
 #include "Headers/interrupts.h"
 #include "Headers/keyboardDriver.h"
+#include "Headers/memory.h"
+#include "Headers/VGA3Driver.h"
+#include "Headers/PCI.h"
 
 void setUpGDT() {
 	setSegmentDescriptor(0, 0, 0, 0, 0);
@@ -31,7 +33,7 @@ extern void kernelMain(void *multiboot_structure, uint32_t magic) {
 
 	setUpInterrupts();
 
-	initializeKeyboardDriver();
+	initKeyboardDriver();
 
 	while (1) {
 	}

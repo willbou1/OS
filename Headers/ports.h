@@ -9,6 +9,19 @@
 #define PORT_NB_PIC_SLAVE_DATA 0xA1
 
 #define PORT_NB_PS2_DATA 0x60
+#define PORT_NB_PS2_STATUS_REG 0x64
+#define PORT_NB_PS2_CMD_REG 0x64
+
+#define PORT_NB_PIT_DATA_CH_0 0x40
+#define PORT_NB_PIT_DATA_CH_1 0x41
+#define PORT_NB_PIT_DATA_CH_2 0x42
+#define PORT_NB_PIT_MODE_COMMAND 0x43
+
+#define PORT_NB_VGA_CMD 0x3D4
+#define PORT_NB_VGA_DATA 0x3D5
+
+#define PORT_NB_PCI_CONFIG_ADDRESS 0xCF8
+#define PORT_NB_PCI_CONFIG_DATA 0xCFC
 
 uint32_t ind(const uint16_t portNumber);
 void outd(const uint16_t portNumber, uint32_t value);

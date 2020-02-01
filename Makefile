@@ -2,7 +2,7 @@ GPPARAMS = -m32 -nostdlib -fno-builtin -fno-leading-underscore
 ASPARAMS = --32
 LDPARAMS = -melf_i386
 
-objects = debug.o keyboardDriver.o CPU.o VGA3Driver.o interruptStubs.o loader.o GDT.o IDT.o ports.o interrupts.o kernel.o
+objects = debug.o memory.o keyboardDriver.o CPU.o VGA3Driver.o interruptStubs.o loader.o GDT.o IDT.o ports.o interrupts.o kernel.o
 ROOT_DIRECTORY = /root/os/
 
 build: mykernel.iso

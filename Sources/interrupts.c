@@ -128,8 +128,8 @@ void sendPICEOI(const uint8_t toSlave) {
 }
 
 void handleIRQ(uint8_t nb) {
-	printf(" INTERRUPT:");
-	hexDump(&nb, 1);
+	//printf(" INTERRUPT:");
+	//hexDump(&nb, 1);
 	if (nb >= 32 && nb <48) {
 		//From PICS
 		//Check if IRQ is spurious
