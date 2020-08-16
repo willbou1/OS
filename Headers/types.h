@@ -6,5 +6,8 @@ typedef char int8_t;
 typedef short int16_t;
 typedef int int32_t;
 
+typedef uint32_t pAddr_t;
+typedef uint32_t vAddr_t;
+
 #define true 1
 #define false 0

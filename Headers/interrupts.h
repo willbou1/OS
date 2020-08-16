@@ -61,7 +61,7 @@ extern void _irq45();
 extern void _irq46();
 extern void _irq47();
 
-void (*exceptionHandlers[32])();
+void (*exceptionHandlers[32])(uint32_t errorCode);
 void (*IRQHandlers[16])();
 
 void clearInterruptHandlers();
@@ -78,6 +78,6 @@ uint16_t getPICISR();
 void sendPICEOI(const uint8_t toSlave);
 
 void handleIRQ(uint8_t nb);
-void handleException(uint8_t nb);
+void handleException(uint8_t nb, uint32_t errorCode);
 
 #endif //INTERRUPT_MANAGER_H

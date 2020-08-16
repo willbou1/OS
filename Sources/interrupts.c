@@ -149,11 +149,15 @@ void handleIRQ(uint8_t nb) {
 	}
 }
 
-void handleException(uint8_t nb) {
-	printf("EXCEPTION ");
-	hexDump(&nb, 1);
-	printRegisters();
-	printf("          STACK: ");
-	hexDump(&nb - 16, 24);
+void handleException(uint8_t nb, uint32_t errorCode) {
+	if (exceptionHandlers[nb])
+		(*(exceptionHandlers[nb]))(errorCode);
+	else {
+		printf("EXCEPTION ");
+		hexDump(&nb, 1);
+		printRegisters();
+		printf("          STACK: ");
+		hexDump(&nb - 16, 24);
+	}
 	while (1) {}
 }

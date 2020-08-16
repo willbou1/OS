@@ -7,6 +7,7 @@
 #include "Headers/memory.h"
 #include "Headers/VGA3Driver.h"
 #include "Headers/PCI.h"
+#include "Headers/multiboot.h"
 
 void setUpGDT() {
 	setSegmentDescriptor(0, 0, 0, 0, 0);
@@ -25,7 +26,7 @@ void setUpInterrupts() {
 	enableInterrupts();
 }
 
-extern void kernelMain(void *multiboot_structure, uint32_t magic) {
+extern void kernelMain(MBStructure_t *vMBStruct, uint32_t magic) {
 
 	clearScreen();
 	
@@ -33,7 +34,22 @@ extern void kernelMain(void *multiboot_structure, uint32_t magic) {
 
 	setUpInterrupts();
 
+	initMemoryManager(vMBStruct);
+
 	initKeyboardDriver();
+
+	/*for (uint16_t i = 0; i < 256; i++) {
+		for (uint16_t j = 0; j < 32; j++) {
+			for (uint16_t k = 0; k < 8; k++) {
+				PCIConfigAddress_t addr = {
+					k, j, i
+				};
+				PCIConfigHeader_t curr = readPCIConfigCommonHeader(addr);
+				if (curr.vendorID != 0xFFFF)
+					hexDump((uint8_t*)&curr.deviceID, 2);
+			}
+		}
+	}*/
 
 	while (1) {
 	}

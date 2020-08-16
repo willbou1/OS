@@ -14,7 +14,7 @@ void backUp() {
 }
 
 void printf(char *str) {
-	uint16_t *videoMemory = (uint16_t*)0xB8000;
+	uint16_t *videoMemory = (uint16_t*)VGA_MODE_TEXT_BUFFER;
 	for (uint32_t i = 0; str[i] != '\0'; i++) {
 		videoMemory[position] = (videoMemory[position] & 0xFF00) | str[i];
 		position++;
@@ -35,7 +35,8 @@ void hexDump(const uint8_t *const base, const uint32_t length) {
 
 void printRegisters() {
 	//Getting registers
-	uint32_t eax, ebx, ecx, edx, esi, edi, ebp, esp, cs, ds, ss, es;
+	uint32_t eax, ebx, ecx, edx, esi, edi, ebp, esp,
+		cs, ds, ss, es, cr2, cr3;
 	asm volatile ("movl %%eax, %0\n\
 		movl %%ebx, %1\n\
 		movl %%ecx, %2\n\
@@ -51,6 +52,9 @@ void printRegisters() {
 		movl %%ss, %2\n\
 		movl %%es, %3"
 		: "=r" (cs), "=r" (ds), "=r" (ss), "=r" (es));
+	asm volatile ("movl %%cr2, %0\n\
+		movl %%cr3, %1"
+		: "=r" (cr2), "=r" (cr3));
 	//Printing registers
 	printf("   EAX:");
 	hexDump((uint8_t*)&eax, 4);
@@ -76,4 +80,8 @@ void printRegisters() {
 	hexDump((uint8_t*)&ss, 4);
 	printf("   ES:");
 	hexDump((uint8_t*)&es, 4);
+	printf("   CR2:");
+	hexDump((uint8_t*)&cr2, 4);
+	printf("   CR3:");
+	hexDump((uint8_t*)&cr3, 4);
 }

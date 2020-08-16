@@ -7,6 +7,8 @@
 #define VGA_MODE_TEXT_WIDTH 80
 #define VGA_MODE_TEXT_HEIGHT 25
 
+#define VGA_MODE_TEXT_BUFFER 0xC03FF000;
+
 #define VGA_MODE_TEXT_COLOR_BLACK 0
 #define VGA_MODE_TEXT_COLOR_BLUE 1
 #define VGA_MODE_TEXT_COLOR_GREEN 2
@@ -31,10 +33,11 @@ void incVGATextPosition();
 const uint16_t getVGATextBufferIndex();
 
 void writeVGAText(const char *const text, const uint8_t BGColor, const uint8_t FGColor, const uint8_t blink);
+void setVGATextColor(const uint8_t BGColor, const uint8_t FGColor);
 void newLineGAText();
 void clearVGAText();
 
-void enableVGATextCursor();
+void enableVGATextCursor(const uint8_t start, const uint8_t end);
 void disableVGATextCursor();
 
 #endif /VGA3_DRIVER_H

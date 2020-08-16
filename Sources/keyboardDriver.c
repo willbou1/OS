@@ -90,9 +90,10 @@ void initKeyboardDriver() {
 	sendCMDKeyboard(0xF0);
 	sendCMDKeyboard(3);
 	//Setting CAPS to make brake only
-	sendCMDKeyboard(0xFC);
+	/*sendCMDKeyboard(0xFC);
 	sendCMDKeyboard(0x14);
 	sendCMDKeyboard(0xFC);
+	printf("hello");*/
 }
 
 void sendCMDKeyboard(const uint8_t cmd) {
